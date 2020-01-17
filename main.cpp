@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
     as = (string)md5(as);
     string pw_m_s = pw + "$1$" + s;
     
-    for(pwlen;pwlen > 0;pwlen-=16){
+    for(;pwlen > 0;pwlen-=16){
         pw_m_s += as.substr(0,(pwlen > 16) ? 16 : pwlen);
         cout << pw_m_s << endl;
     }
