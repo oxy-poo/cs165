@@ -18,7 +18,7 @@ while lp != 0:
 	if(lp & 1):
 		b+= b'\0'
 	else:
-		b+= struct.pack("B",a[0])
+		b+= struct.pack("B",pw[0])
 	lp>>=1
 print(b)
 		
