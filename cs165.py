@@ -24,6 +24,44 @@ print(b)
 		
 intermediate = hashlib.md5(b).hexdigest()
 
-print(intermediate)
+inter = hashlib.md5(b)
 
-	
+print(intermediate)
+"""
+for (i=0; i<1000; i++) {
+  ctx1 = "";
+  if (i & 1) ctx1 += password;
+  else ctx1 += ctx;
+
+  if (i % 3) ctx1 += salt;
+
+  if (i % 7) ctx1 += password;
+
+  if (i & 1) ctx1 += ctx;
+  else ctx1 += password;
+
+  ctx = str_md5(ctx1);
+ }
+ """
+for i in range(1000):
+	#inter = hashlib.md5()
+	#print(i)
+	if i & 1:
+		inter.update(pw)
+	else:
+		inter.update(inter.digest())
+	if i % 3:
+		inter.update(salt)
+	if i % 7:
+		inter.update(pw)
+	if i & 1:
+		inter.update(inter.digest())
+	else:
+		inter.update(pw)
+		
+		
+print(inter.hexdigest())
+		
+
+ 
+ 
